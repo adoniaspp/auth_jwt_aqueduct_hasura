@@ -1,0 +1,17 @@
+name: auth_jwt_project
+description: An empty Aqueduct application.
+version: 0.0.1
+author: stable|kernel <jobs@stablekernel.com>
+
+environment:
+  sdk: ">=2.0.0 <3.0.0"
+
+dependencies:
+  aqueduct: ^4.0.0-b1
+  jose: ^0.2.1+1
+  http: ^0.12.1
+  cryptography: ^1.4.1
+
+dev_dependencies:
+  test: ^1.0.0
+  aqueduct_test: ^2.0.0-b1
