@@ -33,6 +33,10 @@ class AuthJwtProjectChannel extends ApplicationChannel {
         .route("/auth/signup")
         .link(() => AuthJwtSignupController(context));
 
+    router
+        .route("/auth/refreshtoken")
+        .link(() => AuthJwtSignupController(context));
+
     return router;
   }
 }

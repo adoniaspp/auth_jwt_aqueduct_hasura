@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:cryptography/cryptography.dart';
-import 'package:jose/jose.dart';
+import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart' as http;
 import 'auth_jwt_project.dart';
 
@@ -24,7 +24,7 @@ class AuthJwtSignupController extends ResourceController {
     final nonce = Nonce.randomBytes(32);
     final hashPassword =
         await pbkdf2.deriveBits(utf8.encode(password), nonce: nonce);
-    print(hashPassword);
+    
     //Gera o body do Hasura Graphql
     const hasuraOperation =
         '''mutation MyMutation(\$senha: String!, \$usuario: String!) 
@@ -44,37 +44,30 @@ class AuthJwtSignupController extends ResourceController {
           "content-type": "application/json",
           "x-hasura-admin-secret": "aliceadmin"
         },
-        body: bodyHasura
-        );
+        body: bodyHasura);
+
     final bodyResponse = json.decode(response.body);
-    print(bodyResponse);
     final id = bodyResponse["data"]["insert_user_teste_one"]["id"];
+
     //Gera o token jwt
-    var claims = new JsonWebTokenClaims.fromJson({
-      "sub": id,
-      "exp": new Duration(hours: 4).inSeconds,
-      "https://hasura.io/jwt/claims": {
-          "x-hasura-allowed-roles": ["user"],
-          "x-hasura-user-id": '' + id.toString(),
-          "x-hasura-default-role": "user",
-          "x-hasura-role": "user"
-        },
-    });
-    var builder = new JsonWebSignatureBuilder();
-    builder.jsonContent = claims.toJson();
-    builder.addRecipient(
-      new JsonWebKey.fromJson({
-        "kty": "oct",
-        "k":
-            "AyM1SysPpbyDfgZld3umj1qzKObwVMkoqQ-EstJQLr_T-1qS0gZH75aKtMN3Yj0iPS4hcgUuTwjAzZr1Z9CAow"
-      }),
-      algorithm: "HS256");
-    var jws = builder.build();
-    print("jwt compact serialization: ${jws.toCompactSerialization()}");
+    final builder = JWTBuilder();
+    builder
+      ..subject = id.toString()
+      ..expiresAt = DateTime.now().add(const Duration(days: 1))
+      ..setClaim('https://hasura.io/jwt/claims', {
+        "x-hasura-allowed-roles": ["user"],
+        "x-hasura-user-id": id.toString(),
+        "x-hasura-default-role": "user",
+        "x-hasura-role": "user"
+      })
+      ..getToken(); // returns token without signature
+
+    final signer = JWTHmacSha256Signer(
+        'OANglItXIxleeSN_EyBnGmry-8Dmv04FMD6TC_Q9bRVn1RqI82BPaS3xPy4VGKiXBKVKhnXmF6aDyqHwlXIuuA');
+    final signedToken = builder.getSignedToken(signer);
+    print(signedToken); // prints encoded JWT
+
     //Retorna o token
-
-    //print(bodyMap);
-
     return Response.ok(bodyResponse["data"]["insert_user_teste_one"]);
   }
 }

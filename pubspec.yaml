@@ -11,6 +11,7 @@ dependencies:
   jose: ^0.2.1+1
   http: ^0.12.1
   cryptography: ^1.4.1
+  corsac_jwt: ^0.2.2
 
 dev_dependencies:
   test: ^1.0.0
