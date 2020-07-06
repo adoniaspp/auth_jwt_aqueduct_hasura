@@ -1,13 +1,13 @@
-import 'auth_jwt_project.dart';
+import '../auth_jwt_project.dart';
 
-class AuthJwtSigninController extends ResourceController{
+class AuthJwtRefreshTokenController extends ResourceController{
   
-  AuthJwtSigninController(this.context);
+  AuthJwtRefreshTokenController(this.context);
 
   final ManagedContext context;
 
   @Operation.post()
-  Future<Response> sigin() async 
+  Future<Response> refreshToken() async 
   { 
       //Obtem os dados do body
       final bodyMap = request.body.as();

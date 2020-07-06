@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'package:cryptography/cryptography.dart';
 import 'package:corsac_jwt/corsac_jwt.dart';
 import 'package:http/http.dart' as http;
-import 'auth_jwt_project.dart';
+import '../auth_jwt_project.dart';
 
 class AuthJwtSignupController extends ResourceController {
   AuthJwtSignupController(this.context);

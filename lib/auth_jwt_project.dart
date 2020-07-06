@@ -8,8 +8,8 @@ export 'dart:io';
 
 export 'package:aqueduct/aqueduct.dart';
 
-export 'package:auth_jwt_project/auth_jwt_signin_controller.dart';
-export 'package:auth_jwt_project/auth_jwt_signup_controller.dart';
+export 'package:auth_jwt_project/controller/auth_jwt_signin_controller.dart';
+export 'package:auth_jwt_project/controller/auth_jwt_signup_controller.dart';
 
 
 export 'channel.dart';
