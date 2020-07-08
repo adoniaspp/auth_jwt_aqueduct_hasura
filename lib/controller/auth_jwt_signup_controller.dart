@@ -76,9 +76,13 @@ class AuthJwtSignupController extends ResourceController {
     final signer = JWTHmacSha256Signer(
         'OANglItXIxleeSN_EyBnGmry-8Dmv04FMD6TC_Q9bRVn1RqI82BPaS3xPy4VGKiXBKVKhnXmF6aDyqHwlXIuuA');
     final signedToken = builder.getSignedToken(signer);
-    print(signedToken); // prints encoded JWT
-
+    
     //Retorna o token
-    return Response.ok(bodyResponse["data"]["insert_user_one"]);
+    return Response.ok(
+      {
+        "id": id.toString(),
+        "token": signedToken.toString()
+      }
+    );
   }
 }
