@@ -63,7 +63,7 @@ class AuthJwtSignupController extends ResourceController {
     //Gera o token jwt
     final builder = JWTBuilder();
     builder
-      ..subject = id.toString()
+      //..subject = id.toString()
       ..expiresAt = DateTime.now().add(const Duration(days: 1))
       ..setClaim('https://hasura.io/jwt/claims', {
         "x-hasura-allowed-roles": ["user"],
@@ -81,7 +81,8 @@ class AuthJwtSignupController extends ResourceController {
     return Response.ok(
       {
         "id": id.toString(),
-        "token": signedToken.toString()
+        "token": signedToken.toString(),
+        "refreshtoken": refreshToken.bytes.toString()
       }
     );
   }

@@ -13,19 +13,6 @@ class AuthJwtProjectChannel extends ApplicationChannel {
     final router = Router();
 
     router
-        .route("/auth")
-        .linkFunction((request) async {
-            //final bodyMap = request.body.decode();
-            //await bodyMap.then((value) => print(value["input"]["usuario"].toString()));
-            //response: {session_variables: {x-hasura-role: admin}, input: {usuario: adoniaspp, senha: xpto}, action: {name: userTest}}
-            //regra de negócio.
-            //Enviar requisição para mutation no hasura.
-            //Hasura devolve o id inserido.
-            //API do aqueduct retorna o id para o hasura.
-            //return Response.ok({"key": "value"});
-        });
-
-    router
         .route("/auth/signin")
         .link(() => AuthJwtSigninController(context));
 
