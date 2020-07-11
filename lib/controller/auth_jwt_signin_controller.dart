@@ -15,7 +15,7 @@ class AuthJwtSigninController extends ResourceController {
     //Obtem os dados do body
     final bodyMap = request.body.as();
     final user = bodyMap["input"]["user"].toString();
-    final passwordUser = bodyMap["input"]["senha"].toString();
+    final passwordUser = bodyMap["input"]["password"].toString();
 
     //Obtem o usuário para recuperar a senha do banco via graphql
     const hasuraOperation = '''
@@ -51,7 +51,7 @@ class AuthJwtSigninController extends ResourceController {
     final hashPassword = await pbkdf2.deriveBits(utf8.encode(passwordUser),
         nonce: Nonce(_convertSaltToListInt(salt)));
 
-    if (passwordBD == hashPassword.toString()) {
+    if (passwordBD.toString() == hashPassword.toString()) {  //erro
       final builder = JWTBuilder();
       builder
         //..subject = idUser.toString()
@@ -74,7 +74,6 @@ class AuthJwtSigninController extends ResourceController {
       final refreshToken = await blake2s.hash(
         values,
       );
-
       //update do refresh token
       const hasuraOperation = '''
       mutation MyMutation(\$refresh_token: String!, \$iduser: Int!) {
@@ -85,7 +84,7 @@ class AuthJwtSigninController extends ResourceController {
         }
       }     
         ''';
-      final variables = {"iduser": idUser, "refresh_token": refreshToken.bytes.toString()};
+      final variables = {"iduser": idUser.toString(), "refresh_token": refreshToken.bytes.toString()};
       final bodyHasura =
         json.encode({"query": hasuraOperation, "variables": variables});
       final responseUpdate = await http.post("http://172.17.0.3:8080/v1/graphql",
@@ -101,7 +100,7 @@ class AuthJwtSigninController extends ResourceController {
       {
         "id": idUser.toString(),
         "token": signedToken.toString(),
-        "refreshtoken": refreshToken.toString()
+        "refreshtoken": refreshToken.bytes.toString()
       }
     );
     } else {
