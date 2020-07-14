@@ -6,9 +6,10 @@ import 'package:corsac_jwt/corsac_jwt.dart';
 import '../auth_jwt_project.dart';
 
 class AuthJwtSigninController extends ResourceController {
-  AuthJwtSigninController(this.context);
+  AuthJwtSigninController(this.context, this.configuration);
 
   final ManagedContext context;
+  final AuthConfiguration configuration;
 
   @Operation.post()
   Future<Response> sigin() async {
@@ -30,10 +31,10 @@ class AuthJwtSigninController extends ResourceController {
     final variables = {"user": user};
     final bodyHasura =
         json.encode({"query": hasuraOperation, "variables": variables});
-    final responseQuery = await http.post("http://172.17.0.3:8080/v1/graphql",
+    final responseQuery = await http.post(configuration.hasuraUrl,
         headers: {
           "content-type": "application/json",
-          "x-hasura-admin-secret": "aliceadmin"
+          "x-hasura-admin-secret": configuration.hasuraAdminSecret
         },
         body: bodyHasura);
 
@@ -51,7 +52,7 @@ class AuthJwtSigninController extends ResourceController {
     final hashPassword = await pbkdf2.deriveBits(utf8.encode(passwordUser),
         nonce: Nonce(_convertSaltToListInt(salt)));
 
-    if (passwordBD.toString() == hashPassword.toString()) {  //erro
+    if (passwordBD.toString() == hashPassword.toString()) {  
       final builder = JWTBuilder();
       builder
         //..subject = idUser.toString()
@@ -65,7 +66,7 @@ class AuthJwtSigninController extends ResourceController {
         ..getToken(); // returns token without signature
 
       final signer = JWTHmacSha256Signer(
-          'OANglItXIxleeSN_EyBnGmry-8Dmv04FMD6TC_Q9bRVn1RqI82BPaS3xPy4VGKiXBKVKhnXmF6aDyqHwlXIuuA');
+          configuration.jwtSecret);
       final signedToken = builder.getSignedToken(signer);
 
       //Gera o refresh_token
@@ -87,10 +88,10 @@ class AuthJwtSigninController extends ResourceController {
       final variables = {"iduser": idUser.toString(), "refresh_token": refreshToken.bytes.toString()};
       final bodyHasura =
         json.encode({"query": hasuraOperation, "variables": variables});
-      final responseUpdate = await http.post("http://172.17.0.3:8080/v1/graphql",
+      final responseUpdate = await http.post(configuration.hasuraUrl,
         headers: {
           "content-type": "application/json",
-          "x-hasura-admin-secret": "aliceadmin"
+          "x-hasura-admin-secret": configuration.hasuraAdminSecret
         },
         body: bodyHasura);
 
@@ -104,7 +105,10 @@ class AuthJwtSigninController extends ResourceController {
       }
     );
     } else {
-
+      return Response.unauthorized(body: {
+        "message": "username or password is invalid.",
+        "code": "401"
+      });
     }
 
   }

@@ -1,10 +1,13 @@
 import 'package:auth_jwt_project/auth_jwt_project.dart';
 
+
 class AuthJwtProjectChannel extends ApplicationChannel {
   ManagedContext context;
+  AuthConfiguration configurations;
  
   @override
   Future prepare() async {
+    configurations = AuthConfiguration(options.configurationFilePath);
     logger.onRecord.listen((rec) => print("$rec ${rec.error ?? ""} ${rec.stackTrace ?? ""}"));
   }
  
@@ -14,15 +17,15 @@ class AuthJwtProjectChannel extends ApplicationChannel {
 
     router
         .route("/auth/signin")
-        .link(() => AuthJwtSigninController(context));
+        .link(() => AuthJwtSigninController(context,configurations));
 
     router
         .route("/auth/signup")
-        .link(() => AuthJwtSignupController(context));
+        .link(() => AuthJwtSignupController(context,configurations));
 
     router
         .route("/auth/refreshtoken")
-        .link(() => AuthJwtSignupController(context));
+        .link(() => AuthJwtRefreshTokenController(context));
 
     return router;
   }

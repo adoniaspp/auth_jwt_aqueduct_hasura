@@ -7,9 +7,10 @@ import '../auth_jwt_project.dart';
 
 
 class AuthJwtSignupController extends ResourceController {
-  AuthJwtSignupController(this.context);
+  AuthJwtSignupController(this.context, this.configuration);
 
   final ManagedContext context;
+  final AuthConfiguration configuration;
 
   @Operation.post()
   Future<Response> signup() async {
@@ -50,10 +51,10 @@ class AuthJwtSignupController extends ResourceController {
         json.encode({"query": hasuraOperation, "variables": variables});
 
     //Enviar requisição para engine do hasura
-    final response = await http.post("http://172.17.0.3:8080/v1/graphql",
+    final response = await http.post(configuration.hasuraUrl,
         headers: {
           "content-type": "application/json",
-          "x-hasura-admin-secret": "aliceadmin"
+          "x-hasura-admin-secret": configuration.hasuraAdminSecret
         },
         body: bodyHasura);
 
@@ -74,16 +75,14 @@ class AuthJwtSignupController extends ResourceController {
       ..getToken(); // returns token without signature
 
     final signer = JWTHmacSha256Signer(
-        'OANglItXIxleeSN_EyBnGmry-8Dmv04FMD6TC_Q9bRVn1RqI82BPaS3xPy4VGKiXBKVKhnXmF6aDyqHwlXIuuA');
+        configuration.jwtSecret);
     final signedToken = builder.getSignedToken(signer);
     
     //Retorna o token
-    return Response.ok(
-      {
+    return Response.created("",body: {
         "id": id.toString(),
         "token": signedToken.toString(),
         "refreshtoken": refreshToken.bytes.toString()
-      }
-    );
+      });
   }
 }

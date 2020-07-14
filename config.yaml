@@ -1,0 +1,4 @@
+jwtSecret: $JWT_SECRET
+claims: $JWT_CLAIMS
+hasuraUrl: $HASURA_URL
+hasuraAdminSecret: $HASURA_ADMIN_SECRET
