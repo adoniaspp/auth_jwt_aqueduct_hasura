@@ -4,6 +4,7 @@ FROM google/dart
 #ADD pubspec.* /app/
 #ADD . /app/
 
+WORKDIR /workspace
 RUN apt install git
 RUN pub upgrade
 RUN pub get --no-precompile
