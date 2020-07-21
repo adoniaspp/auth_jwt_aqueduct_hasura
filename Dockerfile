@@ -2,9 +2,11 @@ FROM google/dart
 
 #WORKDIR /app
 #ADD pubspec.* /app/
+#RUN pub get --no-precompile
 #ADD . /app/
+#RUN pub get --offline --no-precompile
 
-WORKDIR /workspace
+WORKDIR /workspaces/auth_jwt_project
 RUN apt install git
 RUN pub upgrade
 RUN pub get --no-precompile
