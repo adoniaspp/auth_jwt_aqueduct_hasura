@@ -3,13 +3,13 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-5.0.0",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-6.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/analyzer-0.39.13",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/analyzer-0.39.14",
       "packageUri": "lib/",
       "languageVersion": "2.6"
     },
@@ -66,6 +66,12 @@
       "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/checked_yaml-1.0.2",
       "packageUri": "lib/",
       "languageVersion": "2.3"
+    },
+    {
+      "name": "cli_util",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/cli_util-0.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.0"
     },
     {
       "name": "codable",
@@ -428,7 +434,7 @@
       "languageVersion": "2.0"
     }
   ],
-  "generated": "2020-07-20T02:19:23.570081Z",
+  "generated": "2020-07-21T03:04:45.055077Z",
   "generator": "pub",
   "generatorVersion": "2.8.4"
 }
