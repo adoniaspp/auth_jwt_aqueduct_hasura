@@ -25,7 +25,7 @@ class AuthJwtProjectChannel extends ApplicationChannel {
 
     router
         .route("/auth/refreshtoken")
-        .link(() => AuthJwtRefreshTokenController(context));
+        .link(() => AuthJwtRefreshTokenController(context,configurations));
 
     return router;
   }

@@ -39,9 +39,12 @@ class AuthJwtSigninController extends ResourceController {
         body: bodyHasura);
 
     final bodyResponseQuery = json.decode(responseQuery.body);
-    final idUser = bodyResponseQuery["data"]["user"][0]["id"];
-    final passwordBD = bodyResponseQuery["data"]["user"][0]["password"];
-    final salt = bodyResponseQuery["data"]["user"][0]["salt"].toString();
+    
+    if(bodyResponseQuery["data"]["user"].toString() != "[]")
+    {
+      final idUser = bodyResponseQuery["data"]["user"][0]["id"];
+      final passwordBD = bodyResponseQuery["data"]["user"][0]["password"];
+      final salt = bodyResponseQuery["data"]["user"][0]["salt"].toString();
 
     final pbkdf2 = Pbkdf2(
       macAlgorithm: Hmac(sha256),
@@ -106,11 +109,16 @@ class AuthJwtSigninController extends ResourceController {
     );
     } else {
       return Response.unauthorized(body: {
-        "message": "username or password is invalid.",
+        "message": "password is invalid.",
         "code": "401"
       });
     }
-
+    }else{
+      return Response.unauthorized(body: {
+        "message": "username is invalid.",
+        "code": "401"
+      });
+    }
   }
 
   List<int> _convertSaltToListInt(String argSalt) {

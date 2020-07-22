@@ -3,7 +3,8 @@ import 'package:auth_jwt_project/auth_jwt_project.dart';
 Future main() async {
   final app = Application<AuthJwtProjectChannel>()
       ..options.configurationFilePath = "config.yaml"
-      ..options.port = 8888;
+      ..options.address = "0.0.0.0"
+      ..options.port = 80;
 
   await app.startOnCurrentIsolate();
 
