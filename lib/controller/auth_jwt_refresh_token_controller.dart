@@ -27,7 +27,7 @@ class AuthJwtRefreshTokenController extends ResourceController {
           }
         }      
         ''';
-    final variables = {"refreshtoken": refreshtoken.toString(), "id_phone": idPhone.toString()};
+    final variables = {"refreshtoken": refreshtoken.toString(), "idphone": idPhone.toString()};
     final bodyHasura =
         json.encode({"query": hasuraOperation, "variables": variables});
     final responseQuery = await http.post(configuration.hasuraUrl,
