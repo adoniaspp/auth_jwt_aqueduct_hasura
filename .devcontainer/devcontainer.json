@@ -41,7 +41,7 @@
 	"containerEnv": {
 		"JWT_SECRET": "OANglItXIxleeSN_EyBnGmry-8Dmv04FMD6TC_Q9bRVn1RqI82BPaS3xPy4VGKiXBKVKhnXmF6aDyqHwlXIuuA",
 		"JWT_CLAIMS": "user",
-		"HASURA_URL": "http://172.17.0.3:8080/v1/graphql",
+		"HASURA_URL": "http://172.18.0.3:8080/v1/graphql",
 		"HASURA_ADMIN_SECRET": "aliceadmin"
 	},
 }

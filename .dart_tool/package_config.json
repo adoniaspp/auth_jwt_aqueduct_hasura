@@ -3,15 +3,15 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-6.0.0",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-7.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/analyzer-0.39.14",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/analyzer-0.39.17",
       "packageUri": "lib/",
-      "languageVersion": "2.6"
+      "languageVersion": "2.7"
     },
     {
       "name": "aqueduct",
@@ -69,7 +69,7 @@
     },
     {
       "name": "cli_util",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/cli_util-0.1.4",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/cli_util-0.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -117,9 +117,9 @@
     },
     {
       "name": "csslib",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.1",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.2",
       "packageUri": "lib/",
-      "languageVersion": "2.1"
+      "languageVersion": "2.2"
     },
     {
       "name": "fixnum",
@@ -201,7 +201,7 @@
     },
     {
       "name": "mime",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/mime-0.9.6+3",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/mime-0.9.7",
       "packageUri": "lib/",
       "languageVersion": "2.0"
     },
@@ -309,7 +309,7 @@
     },
     {
       "name": "shelf",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/shelf-0.7.7",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/shelf-0.7.9",
       "packageUri": "lib/",
       "languageVersion": "2.1"
     },
@@ -399,7 +399,7 @@
     },
     {
       "name": "vm_service",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/vm_service-4.1.0",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/vm_service-4.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.6"
     },
@@ -434,7 +434,7 @@
       "languageVersion": "2.0"
     }
   ],
-  "generated": "2020-07-21T03:46:01.526819Z",
+  "generated": "2020-08-27T03:24:43.210142Z",
   "generator": "pub",
-  "generatorVersion": "2.8.4"
+  "generatorVersion": "2.9.2"
 }
