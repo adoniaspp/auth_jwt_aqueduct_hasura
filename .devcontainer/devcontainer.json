@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.122.1/containers/docker-existing-dockerfile
 {	
 
-	"name": "Auth API",
+	"name": "auth_api",
 
 	// Sets the run context to one level up instead of the .devcontainer folder.
 	"context": "..",
@@ -41,7 +41,7 @@
 	"containerEnv": {
 		"JWT_SECRET": "OANglItXIxleeSN_EyBnGmry-8Dmv04FMD6TC_Q9bRVn1RqI82BPaS3xPy4VGKiXBKVKhnXmF6aDyqHwlXIuuA",
 		"JWT_CLAIMS": "user",
-		"HASURA_URL": "http://172.18.0.3:8080/v1/graphql",
+		"HASURA_URL": "http://adoni_graphql-engine_1:8080/v1/graphql",
 		"HASURA_ADMIN_SECRET": "aliceadmin"
 	},
 }
