@@ -3,13 +3,13 @@
   "packages": [
     {
       "name": "_fe_analyzer_shared",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-7.0.0",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/_fe_analyzer_shared-11.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.2"
     },
     {
       "name": "analyzer",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/analyzer-0.39.17",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/analyzer-0.40.4",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -99,7 +99,7 @@
     },
     {
       "name": "coverage",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/coverage-0.14.0",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/coverage-0.14.1",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -116,12 +116,6 @@
       "languageVersion": "2.5"
     },
     {
-      "name": "csslib",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/csslib-0.16.2",
-      "packageUri": "lib/",
-      "languageVersion": "2.2"
-    },
-    {
       "name": "fixnum",
       "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/fixnum-0.10.11",
       "packageUri": "lib/",
@@ -132,12 +126,6 @@
       "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/glob-1.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.1"
-    },
-    {
-      "name": "html",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/html-0.14.0+3",
-      "packageUri": "lib/",
-      "languageVersion": "2.3"
     },
     {
       "name": "http",
@@ -177,9 +165,9 @@
     },
     {
       "name": "json_annotation",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/json_annotation-3.0.1",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/json_annotation-3.1.0",
       "packageUri": "lib/",
-      "languageVersion": "2.6"
+      "languageVersion": "2.7"
     },
     {
       "name": "logging",
@@ -195,7 +183,7 @@
     },
     {
       "name": "meta",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/meta-1.2.2",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/meta-1.2.3",
       "packageUri": "lib/",
       "languageVersion": "1.12"
     },
@@ -267,9 +255,9 @@
     },
     {
       "name": "postgres",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/postgres-2.1.1",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/postgres-2.2.0",
       "packageUri": "lib/",
-      "languageVersion": "2.2"
+      "languageVersion": "2.8"
     },
     {
       "name": "pub_cache",
@@ -375,7 +363,7 @@
     },
     {
       "name": "test",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/test-1.15.3",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/test-1.15.4",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -387,7 +375,7 @@
     },
     {
       "name": "test_core",
-      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/test_core-0.3.11",
+      "rootUri": "file:///root/.pub-cache/hosted/pub.dartlang.org/test_core-0.3.11+1",
       "packageUri": "lib/",
       "languageVersion": "2.7"
     },
@@ -434,7 +422,7 @@
       "languageVersion": "2.0"
     }
   ],
-  "generated": "2020-08-27T03:58:26.373710Z",
+  "generated": "2020-10-21T03:13:58.175266Z",
   "generator": "pub",
-  "generatorVersion": "2.9.2"
+  "generatorVersion": "2.10.2"
 }
